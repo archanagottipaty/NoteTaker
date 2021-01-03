@@ -38,17 +38,9 @@ app.post('/api/notes', (req,res) => {
     tmpdb.push(newNote);
      fs.writeFile(outputPath, JSON.stringify(tmpdb) , (err) => {
         if (err) throw err;
-        // console.log(tmpdb)
         res.json(tmpdb);
 
-      });
-    
-
-    // TODO: 1. Update tempdb with req.body and id
-    // res.end( req.body );
-    // 2. rewrite db.json with the tempdb
-    // res.json the tempdb
-    
+      });   
 })
 
 app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, 'public/notes.html')));
